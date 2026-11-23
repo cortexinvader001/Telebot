@@ -1,0 +1,4 @@
+#!/bin/sh
+# say "message"  ->  the message is sent to the user's Telegram chat immediately.
+# (The bot watches command output for the ::say:: marker; `echo "::say:: message"` is identical.)
+printf '%s %s\n' '::say::' "$*"

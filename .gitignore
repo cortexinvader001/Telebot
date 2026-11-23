@@ -1,0 +1,7 @@
+.env
+*.db
+workspace/*
+!workspace/.gitkeep
+custom_tools/*
+!custom_tools/.gitkeep
+__pycache__/

@@ -1,0 +1,20 @@
+# Render Blueprint: a paid Background Worker + persistent disk (Telegram long polling needs an always-on process).
+services:
+  - type: worker
+    name: telegram-agent
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: starter
+    disk:
+      name: agent-data
+      mountPath: /data
+      sizeGB: 2
+    envVars:
+      - key: TELEGRAM_TOKEN
+        sync: false
+      - key: AGNES_API_KEYS        # comma separated: key1,key2,key3
+        sync: false
+      - key: GEMINI_API_KEYS       # comma separated; only helps if keys are from different Google projects
+        sync: false
+      - key: DATA_DIR
+        value: /data

@@ -1,0 +1,10 @@
+python-dotenv
+requests
+pytelegrambotapi
+telegramify-markdown
+openai
+google-genai
+pypdf
+pdfplumber
+reportlab
+python-docx

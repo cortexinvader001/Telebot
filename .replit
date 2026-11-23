@@ -1,0 +1,7 @@
+modules = ["python-3.11", "nodejs-20"]
+run = "python bot.py"
+
+[nix]
+channel = "stable-25_05"
+# CLI tools the agent's shell (and the pdf skill) can use without any download at runtime
+packages = ["unzip", "zip", "ffmpeg", "git", "curl", "poppler_utils", "qpdf", "tesseract", "imagemagick", "jq"]

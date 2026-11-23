@@ -1,0 +1,7 @@
+.env
+*.db
+workspace/
+custom_tools/
+legacy/
+__pycache__/
+.git/
