@@ -7,6 +7,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         ffmpeg git curl ca-certificates poppler-utils qpdf tesseract-ocr imagemagick jq zip unzip nodejs npm \
     && rm -rf /var/lib/apt/lists/*
 
+RUN curl -fsSL https://pkg.cloudflare.com/cloudflare-main.gpg \
+        -o /usr/share/keyrings/cloudflare-main.gpg \
+    && echo "deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cloudflare.com/cloudflared any main" \
+        > /etc/apt/sources.list.d/cloudflared.list \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends cloudflared \
+    && rm -rf /var/lib/apt/lists/*
+
 # Unprivileged user that every agent shell command runs as (the bot itself stays root so it can
 # drop privileges, and so its environment/secrets and database are unreadable to those commands).
 RUN groupadd -g 1001 sandbox && useradd -u 1001 -g 1001 -m -s /bin/bash sandbox
