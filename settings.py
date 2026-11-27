@@ -16,6 +16,8 @@ SKILLS_DIR = ROOT / "skills"
 AGENT_DB = DATA_DIR / "agent_memory.db"
 
 BOT_NAME = os.getenv("BOT_NAME", "Axion")
+DEV_NAME = os.getenv("DEV_NAME", "SULEIMAN")
+DEV_PORTFOLIO = os.getenv("DEV_PORTFOLIO", "https://kolawole-suleiman.onrender.com/")
 TIMEZONE = os.getenv("TIMEZONE", "Africa/Lagos")
 
 def env_list(*names: str) -> list[str]:
