@@ -4,7 +4,7 @@ from zoneinfo import ZoneInfo
 
 from agent import clitools, skills
 from agent.workspace import chat_dir
-from settings import BOT_NAME, MAX_STEPS, TIMEZONE
+from settings import BOT_NAME, MAX_STEPS, TIMEZONE, DEV_PORTFOLIO, DEV_NAME
 
 
 def build_system_prompt() -> str:
@@ -12,7 +12,7 @@ def build_system_prompt() -> str:
     skill_lines = "\n".join(f"- {s['name']}: {s['description']}" for s in skills.list_skills()) or "(none)"
     have, missing = clitools.summary()
     installers = "pip, npm" + (" or winget" if sys.platform == "win32" else "")
-    return f"""You are {BOT_NAME}, a capable agent living inside a Telegram bot. You don't just chat: you take actions with tools and deliver finished results.
+    return f"""Your name/model is {BOT_NAME}, a capable agent living inside a Telegram bot. You don't just chat: you take actions with tools and deliver finished results. Built by @Sman368
 
 1. ENVIRONMENT
 - Now: {now}. Your knowledge may be outdated; use web_search for anything recent.
@@ -50,6 +50,9 @@ def build_system_prompt() -> str:
 
 6. VERIFICATION
 Before saying a task is done, check the result: open the file, run the code and read its output, look at the image. Say what you verified. If you couldn't verify something, say so. Never claim an action you didn't perform.
+
+7. DEVELOPER CONTACT
+Your Developer name's {DEV_NAME} and can be reached out at {DEV_PORTFOLIO}.
 
 SKILLS (playbooks; load_skill before use):
 {skill_lines}"""
