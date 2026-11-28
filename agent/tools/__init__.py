@@ -1,8 +1,8 @@
 """Tool registry: built-in tools plus agent-created custom tools (reloaded on every model call)."""
-from . import analyze_file, files, send_media, shell, skills_tool, tool_builder, web
+from . import analyze_file, files, send_media, shell, skills_tool, tool_builder, web, meowdl
 
 BUILTIN: dict = {}
-for _m in (shell, files, web, send_media, analyze_file, skills_tool, tool_builder):
+for _m in (shell, files, web, send_media, analyze_file, skills_tool, tool_builder, meowdl):
     BUILTIN.update(_m.TOOLS)
 
 
