@@ -11,7 +11,7 @@ from agent import sandbox
 from settings import ROOT
 
 WANTED = ["python3", "pip", "node", "npm", "git", "curl", "ffmpeg", "ffprobe",
-          "pdftotext", "qpdf", "tesseract", "convert", "jq", "zip", "unzip"]
+          "pdftotext", "qpdf", "tesseract", "convert", "jq", "zip", "unzip", "cloudflare"]
 HINTS = {  # how to get what we can't install portably
     "git": "Replit: add `git` to nix packages in .replit",
     "curl": "Replit: add `curl` to nix packages in .replit",
